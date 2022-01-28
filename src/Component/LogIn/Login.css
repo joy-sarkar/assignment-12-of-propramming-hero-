@@ -1,0 +1,9 @@
+.logInForm{
+    text-align: center;
+    width: 25rem;
+}
+.logInDiv{
+    display: flex;
+    align-items: center;
+    flex-direction: column
+}

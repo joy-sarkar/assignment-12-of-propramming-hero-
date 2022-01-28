@@ -1,0 +1,29 @@
+.labelText {
+  z-index: 2;
+  color: white;
+  position: absolute;
+  top: 90%;
+  left: 30%;
+  /* text-align: center; */
+}
+.bannerbtn {
+  z-index: 2;
+  color: white;
+  font-weight: 500;
+  position: absolute;
+  top: 95%;
+  left: 40%;
+  margin-top: 12rem;
+}
+.bannerImg {
+}
+@media only screen and (max-width: 600px) {
+    .bannerImg{
+        width: auto;
+        height: 400px;
+        background-color: blueviolet;
+    }
+    .labelText{
+        color: red;
+    }
+}

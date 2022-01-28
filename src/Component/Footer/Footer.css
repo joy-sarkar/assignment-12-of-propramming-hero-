@@ -1,0 +1,53 @@
+.locationIcon,.phoneIcon,.emailIcon{
+    background-color: rgb(44, 44, 44);
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 12px;
+}
+.locationText {
+  font-size: 20px;
+  
+}
+.location {
+  margin-left: 6rem;
+}
+.number {
+  margin-left: 6rem;
+}
+.email {
+  margin-left: 6rem;
+}
+.aboutSection {
+  margin-top: 4rem;
+}
+.footerbodytext {
+  color: white;
+}
+.footerSocialIcon {
+  color: white;
+  padding: 8px;
+  background-color: rgb(44, 44, 44);
+  margin: 10px 10px 10px -2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.footerLeft{
+    margin-top: 2rem;
+}
+/* make responsive */
+@media only screen and (max-width: 600px) {
+    .footerLeft{
+        padding: 2.5rem ;
+        text-align: center;
+    }
+    .location.number.email.locationText{
+        font-size: 30px;
+    }
+    .footerRight{
+        padding: 2.6rem;
+        text-align: center;
+    }
+    .locationIcon.phoneIcon.emailIcon{
+        background-color: bisque;
+    }
+}
