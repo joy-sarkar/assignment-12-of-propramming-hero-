@@ -23,7 +23,7 @@ const Footer = () => {
             <div className="location">
               <LocationOnIcon
                 className="locationIcon"
-                sx={{ color: "white", mt: 4}}
+                sx={{ color: "white"}}
               />
               <Typography
                 className="locationText"
@@ -64,7 +64,7 @@ const Footer = () => {
           <div className="footerRight">
             <div className="aboutSection">
               <Typography
-                sx={{ color: "white", fontSize: "30px" }}
+                sx={{ color: "white" }}
                 variant="body1"
               >
                 About The Showroom

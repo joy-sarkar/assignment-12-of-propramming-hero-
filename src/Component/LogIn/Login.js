@@ -5,15 +5,18 @@ import {
   Container,
   Grid,
   TextField,
-  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import useAuth from "../../Hooks/useAuth";
+import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [resistationData, setresistationData] = useState({});
-  const{loginUser}=useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const{loginUser,isLoading,user,error}=useAuth();
   // collection data form user
   const handelOnSubmit = (e) => {
     const value = e.target.value;
@@ -23,16 +26,16 @@ const Login = () => {
     setresistationData(newcontactData);
   };
   const handelForm = (e) => {
+      loginUser(resistationData.email,resistationData.password,location,history)
     e.preventDefault();
-    console.log("form submit");
-    console.log("This is Log In Data", resistationData);
   };
   return (
     <div className="logInDiv">
       <Box>
         <Container>
           <Grid container>
-            <form className="logInForm" onSubmit={handelForm}>
+            <div className="logInForm">
+           { <form  onSubmit={handelForm}>
               <Grid xs={12} item>
                 <TextField
                   sx={{ width: "75%", m: 2 }}
@@ -50,7 +53,7 @@ const Login = () => {
                   id="standard-basic"
                   label="Password"
                   required
-                  name="Password"
+                  name="password"
                   type="password"
                   onChange={handelOnSubmit}
                   variant="standard"
@@ -66,7 +69,8 @@ const Login = () => {
                   New User?Please Resister
                 </Button>
               </Link>
-            </form>
+            </form>}
+            </div>
           </Grid>
         </Container>
       </Box>

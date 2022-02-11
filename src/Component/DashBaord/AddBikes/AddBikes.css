@@ -1,0 +1,20 @@
+.bike_add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputBikeInfo {
+  width: 25rem;
+}
+
+/* make it responsive  */
+
+@media screen and (max-width: 600px) {
+  .inputBikeInfo {
+    width: 15rem;
+  }
+  .inputBikeInfo input {
+    /* background-color: white; */
+    color: black;
+  }
+}

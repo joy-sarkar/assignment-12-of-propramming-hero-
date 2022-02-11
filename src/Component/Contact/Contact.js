@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField } from "@mui/material";
+import img from "../../Images/contact-img.png";
 import "./Contact.css";
+import Footer from "../Footer/Footer";
 
 const Contact = () => {
   const [contactData, setcontactData] = useState({});
@@ -18,16 +20,16 @@ const Contact = () => {
     console.log("This is contact Data", contactData);
   };
   return (
-    <div>
-      <h4>This is Contact Page</h4>
+    <div className="formDiv">
       <Box>
         <Grid container>
-          <form className="contactForm" onSubmit={handelForm}>
-            <Grid xs={12} item>
+          <Grid xs={12} md={6} lg={6} item>
+            <form className="contactForm" onSubmit={handelForm}>
               <TextField
                 id="standard-basic"
                 required
                 label="Your Name"
+                sx={{ width: "75%", mb: 1 }}
                 variant="standard"
                 onChange={handelOnSubmit}
                 name="name"
@@ -38,6 +40,7 @@ const Contact = () => {
                 id="standard-basic"
                 required
                 label="Your Email"
+                sx={{ width: "75%", mb: 1 }}
                 name="email"
                 onChange={handelOnSubmit}
                 variant="standard"
@@ -46,21 +49,50 @@ const Contact = () => {
               <br />
               <TextField
                 id="standard-basic"
+                required
+                label="Your Phone"
+                sx={{ width: "75%", mb: 1 }}
+                name="phone"
+                onChange={handelOnSubmit}
+                variant="standard"
+                rows={4}
+              />
+              <br />
+              <TextField
+                id="standard-basic"
+                sx={{ width: "75%", mb: 1 }}
+                required
+                label="Your Address"
+                name="address"
+                onChange={handelOnSubmit}
+                variant="standard"
+                rows={4}
+              />
+              <br />
+              <TextField
+                id="standard-basic"
                 label="Your Massage"
+                sx={{ width: "75%", mb: 1 }}
+                multiline
                 required
                 name="massage"
                 onChange={handelOnSubmit}
                 variant="standard"
                 rows={4}
               />
-              <Typography variant="h4">This is contact page</Typography>
-            </Grid>
-            <Button sx={{ mb: 3 }} variant="contained" type="submit">
-              Submit
-            </Button>
-          </form>
+              <br />
+              <Button sx={{ mb: 3, mt: 3 }} variant="contained" type="submit">
+                Submit
+              </Button>
+            </form>
+          </Grid>
+
+          <Grid xs={12} md={6} lg={6} item>
+            <img className="formImg" src={img} alt="" />
+          </Grid>
         </Grid>
       </Box>
+      <Footer></Footer>
     </div>
   );
 };

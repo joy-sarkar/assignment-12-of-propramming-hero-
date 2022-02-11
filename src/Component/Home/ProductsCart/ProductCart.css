@@ -1,0 +1,4 @@
+.cart_img{
+    object-fit: cover !important;
+    width: 16rem;
+}

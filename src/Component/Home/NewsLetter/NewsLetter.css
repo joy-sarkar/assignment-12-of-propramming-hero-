@@ -1,0 +1,43 @@
+.newsltrCountainer {
+  background-color: royalblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.newsLetterInput {
+  margin: 2rem 2rem 2rem 13rem !important;
+  background-color: white;
+  border-radius: 5px;
+  width: 60%;
+  padding: 2px;
+}
+.btnDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* make responsive  */
+@media only screen and (max-width: 600px) {
+  .btnDiv {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .btnDiv Button {
+    background-color: blue;
+    margin-right: 13rem !important;
+    margin-top: 3rem;
+  }
+  .newsltrCountainer input {
+    /* background-color: aqua;  */
+    background-color: white;
+    padding: 5px;
+    width: 17rem !important;
+    margin-bottom: 5rem;
+    margin-left: -7.5rem;
+    border-radius: 5px;
+  }
+  .css-1480iag-MuiInputBase-root-MuiInput-root {
+    background-color: royalblue;
+  }
+}

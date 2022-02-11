@@ -1,0 +1,27 @@
+.blogImg01 {
+  width: 90%;
+  margin: 10px 0px 20px 15px;
+}
+.blogImg02 {
+  width: 90%;
+  margin: 10px 0px 20px 15px;
+}
+.blog01txt {
+  padding: 2rem 1rem 1rem 0.5rem;
+}
+.blog02txt {
+  padding: 2rem 1rem 1rem 0.5rem;
+}
+/* make responsive this design */
+@media only screen and (max-width: 600px) {
+  .blog02 {
+    display: flex;
+    flex-direction: column;
+  }
+  .blogImg02 {
+    order: 1 !important;
+  }
+  .blog02txt {
+    order: 2 !important;
+  }
+}

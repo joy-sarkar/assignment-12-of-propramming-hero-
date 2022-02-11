@@ -23,7 +23,9 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        setUser(result.user);
+        const user = result.user
+        setUser(user);
+        saveUser(user.email, user.displayName, 'PUT');
         // redirect ui
         sessionStorage.setItem("email", "result.user.email");
         const redirect_uri = location.state?.from || "/";
@@ -40,6 +42,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
+        const user = result.user;
         sessionStorage.setItem("email", "result.user.email");
         setError("");
         const redirect_uri = location.state?.from || "/";
@@ -51,7 +54,7 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
   // create new user with email and password
-  const registerUser = (email, password, name, location, history) => {
+  const registerUser = (email, password, name,history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -59,12 +62,13 @@ const useFirebase = () => {
         sessionStorage.setItem("email", "result.user.email");
         const newUser = { email, displayName: name };
         setUser(newUser);
+        // save user to data base 
+        saveUser(email, name, 'POST');
         updateProfile(auth.currentUser, {
           displayName: name,
         }).then(() => {});
         // log In after redirects
-        const redirect_uri = location.state?.from || "/";
-        history.push(redirect_uri);
+        history.push('/');
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -96,6 +100,19 @@ const useFirebase = () => {
     });
     return () => unsubscribe;
   }, []);
+
+  // save user in database 
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch('http://localhost:5000/users', {
+        method: method,
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+        .then()
+}
   return {
     user,
     error,

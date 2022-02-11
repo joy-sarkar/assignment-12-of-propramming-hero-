@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import {
+  Alert,
   Box,
   Button,
-  Container,
+  CircularProgress,
   Grid,
   TextField,
-  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import './Resistation.css'
 import useAuth from "../../Hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 const Resistation = () => {
   const [registationData, setregistationData] = useState({});
-  const{singInUsingGoogle}=useAuth();
+  const{singInUsingGoogle,registerUser,isLoading,user,error}=useAuth();
+  const history = useHistory();
   // collection data form user
   const handelOnSubmit = (e) => {
     const value = e.target.value;
@@ -23,19 +25,20 @@ const Resistation = () => {
     setregistationData(newcontactData);
   };
   const handelForm = (e) => {
-    e.preventDefault();
-    
     if (registationData.Password !== registationData.Password2) {
       alert("your Password didn't Match");
       return;
     }
+    registerUser(registationData.email,registationData.password,registationData.name,history)
+    e.preventDefault();
   };
   return (
     <div className="registationDiv">
       <Box>
         <container>
           <Grid style={{textAlign:'center'}} container>
-            <form className="registationForm" onSubmit={handelForm}>
+            <div className="registationForm">
+            {!isLoading && <form  onSubmit={handelForm}>
               <Grid xs={12} item>
                 <TextField
                   sx={{ width: "75%"}}
@@ -64,7 +67,7 @@ const Resistation = () => {
                   id="standard-basic"
                   label="Password"
                   required
-                  name="Password"
+                  name="password"
                   type="password"
                   onChange={handelOnSubmit}
                   variant="standard"
@@ -75,7 +78,7 @@ const Resistation = () => {
                   id="standard-basic"
                   label="Re type Password"
                   required
-                  name="Password2"
+                  name="password2"
                   type="password"
                   onChange={handelOnSubmit}
                   variant="standard"
@@ -91,7 +94,11 @@ const Resistation = () => {
               </Link>
             <br/>
             <Button onClick={singInUsingGoogle} sx={{ mb: 4 }} variant="contained">Sign Up with Google</Button>
-            </form>
+            </form>}
+            {isLoading && <CircularProgress />}
+                    {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+                    {error && <Alert severity="error">{error}</Alert>}
+            </div>
           </Grid>
         </container>
       </Box>

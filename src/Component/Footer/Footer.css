@@ -1,21 +1,21 @@
-.locationIcon,.phoneIcon,.emailIcon{
-    background-color: rgb(44, 44, 44);
-    padding: 8px;
-    border-radius: 5px;
-    margin-right: 12px;
+.locationIcon,
+.phoneIcon,
+.emailIcon {
+  background-color: rgb(44, 44, 44);
+  padding: 8px;
+  border-radius: 5px;
+  margin-right: 12px;
 }
 .locationText {
-  font-size: 20px;
-  
 }
 .location {
-  margin-left: 6rem;
+  /* margin-left: 6rem; */
 }
 .number {
-  margin-left: 6rem;
+  /* margin-left: 6rem; */
 }
 .email {
-  margin-left: 6rem;
+  /* margin-left: 6rem; */
 }
 .aboutSection {
   margin-top: 4rem;
@@ -31,23 +31,47 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.footerLeft{
-    margin-top: 2rem;
+.footerLeft {
+padding: 3rem 4rem;
+;
+}
+/* align text and icon same row */
+.location,
+  .number,
+  .email {
+    display: flex;
+    align-items: center;
+  }
+.footerRight {
+  font-size: "30px";
 }
 /* make responsive */
 @media only screen and (max-width: 600px) {
-    .footerLeft{
-        padding: 2.5rem ;
-        text-align: center;
-    }
-    .location.number.email.locationText{
-        font-size: 30px;
-    }
-    .footerRight{
-        padding: 2.6rem;
-        text-align: center;
-    }
-    .locationIcon.phoneIcon.emailIcon{
-        background-color: bisque;
-    }
+  .location,
+  .number,
+  .email {
+    margin-left: 2rem;
+  }
+  .footerLeft {
+  margin-top: 20%;
+  }
+  .location,
+  .number,
+  .email,
+  .locationText {
+    font-size: 30px;
+  }
+  .location,
+  .number,
+  .email {
+    display: flex;
+    align-items: center;
+  }
+  .footerRight {
+    padding: 1.5rem 2rem 2rem 2rem;
+    text-align: center;
+  }
+  .locationIcon.phoneIcon.emailIcon {
+    background-color: bisque;
+  }
 }

@@ -17,24 +17,24 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: "San Francisco Oakland Bay Bridge, United States 01",
+    label: "Get your Performance Boot",
     imgPath:
-      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+      "https://images.unsplash.com/photo-1558974804-2c2b396b60df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG1vdG9yY3ljbGV8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
-    label: "San Francisco Oakland Bay Bridge, United States 02",
+    label: "Ready for Adventure, go for ride",
     imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+      "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG1vdG9yY3ljbGV8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
-    label: "San Francisco Oakland Bay Bridge, United States 03",
+    label: "Life is expensive ride with the bike",
     imgPath:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80",
+      "https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW90b3JjeWNsZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60",
   },
   {
-    label: "San Francisco Oakland Bay Bridge, United States 04",
+    label: "Life is a bike enjoy the ride",
     imgPath:
-      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
+      "https://images.unsplash.com/photo-1596440114792-d3e0ae1763f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vdG9yY3ljbGV8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
   },
 ];
 
@@ -91,8 +91,9 @@ const Banner = () => {
               }}
             >
               <Button
-                variant="outlined"
                 className="bannerbtn"
+                style={{color:'white',marginTop:'2rem'}}
+                variant="outlined"
               >
                 EXPLORE<DoubleArrowIcon></DoubleArrowIcon>
               </Button>
@@ -125,7 +126,7 @@ const Banner = () => {
           </Grid>
         </Grid>
 
-        {/* next and privious button here */}
+        {/* next and previous button here */}
         {/* <MobileStepper
         steps={maxSteps}
         position="static"

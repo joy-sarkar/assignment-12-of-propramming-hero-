@@ -31,11 +31,10 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const handelLogOut= () =>{
+  const handelLogOut = () => {
     handleCloseNavMenu();
     logOut();
-    
-  }
+  };
   return (
     <div>
       <AppBar position="static">
@@ -125,17 +124,10 @@ const Header = () => {
                   </Typography>
                 </MenuItem>
                 {/* log out button */}
-                {/* <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <NavLink
-                      style={{ textDecoration: "none", color: "black" }}
-                      to="/blog"
-                    >
-                      Log Out
-                    </NavLink>
-                  </Typography>
-                </MenuItem> */}
-                <Button onClick={handelLogOut} variant="button">Log Out</Button>
+
+                <Button onClick={handelLogOut} variant="button">
+                  Log Out
+                </Button>
               </Menu>
             </Box>
             <Typography
@@ -197,7 +189,7 @@ const Header = () => {
                 </Typography>
               </MenuItem>
               <Button
-              onClick={logOut}
+                onClick={logOut}
                 sx={{ color: "white", flexGrow: 0, mr: "auto" }}
                 variant="text"
               >
@@ -213,18 +205,24 @@ const Header = () => {
               >
                 {user?.displayName}
               </Typography>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              {/* <Tooltip title="Open settings"> */}
+                {/* onclick open manu onClick={handleOpenUserMenu} */}
+                {user?.email && <IconButton sx={{ p: 0 }}>
                   <Typography
                     sx={{ color: "white" }}
                     variant="button"
                     display="block"
                     component="div"
                   >
-                    Dashboard
+                    <NavLink
+                      style={{ textDecoration: "none", color: "white" }}
+                      to="/dashboard"
+                    >
+                      Dashboard
+                    </NavLink>
                   </Typography>
-                </IconButton>
-              </Tooltip>
+                </IconButton>}
+              {/* </Tooltip> */}
               <Menu
                 sx={{ mt: "45px" }}
                 id="menu-appbar"
@@ -242,16 +240,73 @@ const Header = () => {
                 onClose={handleCloseUserMenu}
               >
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">My Order</Typography>
+                  <Typography textAlign="center">
+                    <NavLink
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/blog"
+                    >
+                      My Order
+                    </NavLink>
+                  </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Review</Typography>
+                  <Typography textAlign="center">
+                    <NavLink
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/blog"
+                    >
+                      Review
+                    </NavLink>
+                  </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Pay</Typography>
+                  <Typography textAlign="center">
+                    <NavLink
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/blog"
+                    >
+                      Pay
+                    </NavLink>
+                  </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Log Out</Typography>
+                  <Typography textAlign="center">
+                    <NavLink
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/blog"
+                    >
+                      Manage all Order
+                    </NavLink>
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">
+                    <NavLink
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/makeadmin"
+                    >
+                      Add a Product
+                    </NavLink>
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">
+                    <NavLink
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/makeadmin"
+                    >
+                      Make Admin
+                    </NavLink>
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Button
+                    onClick={logOut}
+                    sx={{ color: "black", flexGrow: 0, mr: "auto" }}
+                    variant="text"
+                  >
+                    Log Out
+                  </Button>
                 </MenuItem>
               </Menu>
             </Box>

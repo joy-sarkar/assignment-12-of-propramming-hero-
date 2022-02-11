@@ -1,29 +1,49 @@
 .labelText {
   z-index: 2;
   color: white;
+  font-size: 35px !important;
   position: absolute;
-  top: 90%;
-  left: 30%;
-  /* text-align: center; */
+  top: 22rem;
+  left: 25rem;
+  font-family: 'Courier New', Courier, monospace;
 }
 .bannerbtn {
   z-index: 2;
-  color: white;
   font-weight: 500;
+  margin-left: 40px;
   position: absolute;
-  top: 95%;
-  left: 40%;
-  margin-top: 12rem;
+  top: 22rem;
+  left: 35rem;
 }
 .bannerImg {
+  position: relative;
+  height: 90vh;
+  overflow-y: hidden;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 @media only screen and (max-width: 600px) {
-    .bannerImg{
-        width: auto;
-        height: 400px;
-        background-color: blueviolet;
-    }
-    .labelText{
-        color: red;
-    }
+  .bannerImg {
+    width: auto;
+    height: 400px;
+    background-color: blueviolet;
+    overflow-y: hidden;
+    position: relative;
+    background-repeat: no-repeat;
+  }
+  .labelText {
+    font-size: 15px !important;
+    color: white;
+    position: absolute;
+    top: 15rem;
+    left: 5rem;
+    margin-right: 15px !important;
+  }
+  .bannerbtn {
+    position: absolute;
+    top: 15rem;
+    left: 7rem;
+  }
 }
