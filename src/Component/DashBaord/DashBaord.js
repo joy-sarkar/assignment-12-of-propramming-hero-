@@ -17,6 +17,7 @@ import "./DashBoard.css";
 import ManageAllOder from "./ManageAllOder/ManageAllOder";
 import Addbikes from "./AddBikes/Addbikes"
 import MyOrder from "./MyOrder/MyOrder";
+import Review from "./Review/Review";
 
 const drawerWidth = 170;
 
@@ -61,6 +62,12 @@ function ResponsiveDrawer(props) {
           <Button color="inherit">Add Bikes</Button>
         </Link>
         <br />
+        <Link style={{ textDecoration: "none" }} to={`${url}/review`}>
+          <Button color="inherit">Review</Button>
+        </Link>
+        <Link>
+        <Button>Log Out</Button>
+        </Link>
       </Box>
     </div>
   );
@@ -149,6 +156,9 @@ function ResponsiveDrawer(props) {
           </Route>
           <Route exact path={`${path}/addbikes`}>
           <Addbikes></Addbikes>
+          </Route>
+          <Route exact path={`${path}/review`}>
+          <Review></Review>
           </Route>
         </Switch>
       </Box>

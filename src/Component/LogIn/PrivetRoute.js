@@ -1,12 +1,17 @@
-import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
-
+import React from "react";
+import { Redirect, Route } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import CircularProgress from "@mui/material/CircularProgress";
+import { Box } from "@mui/system";
 
 const PrivetRoute = ({ children, ...rest }) => {
-  const{user,isLoading}= useAuth();
-  if(isLoading){
-    // return return a spinner
+  const { user, isLoading } = useAuth();
+  if (isLoading) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
   }
   return (
     <Route
@@ -18,7 +23,7 @@ const PrivetRoute = ({ children, ...rest }) => {
           <Redirect
             to={{
               pathname: "/login",
-              state: { from: location }
+              state: { from: location },
             }}
           />
         )

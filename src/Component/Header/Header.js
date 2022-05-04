@@ -188,13 +188,13 @@ const Header = () => {
                   </NavLink>
                 </Typography>
               </MenuItem>
-              <Button
+              {user?.email && <Button
                 onClick={logOut}
                 sx={{ color: "white", flexGrow: 0, mr: "auto" }}
                 variant="text"
               >
                 Log Out
-              </Button>
+              </Button>}
             </Box>
             <Box sx={{ flexGrow: 0 }}>
               {/* test user name */}
@@ -205,8 +205,6 @@ const Header = () => {
               >
                 {user?.displayName}
               </Typography>
-              {/* <Tooltip title="Open settings"> */}
-                {/* onclick open manu onClick={handleOpenUserMenu} */}
                 {user?.email && <IconButton sx={{ p: 0 }}>
                   <Typography
                     sx={{ color: "white" }}

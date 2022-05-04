@@ -97,7 +97,7 @@ const Resistation = () => {
             </form>}
             {isLoading && <CircularProgress />}
                     {user?.email && <Alert severity="success">User Created successfully!</Alert>}
-                    {error && <Alert severity="error">{error}</Alert>}
+                    {/* {error && <Alert severity="error">{error}</Alert>} */}
             </div>
           </Grid>
         </container>

@@ -15,7 +15,7 @@ const Newsletter = () => {
             justifyContent: "center",
           }}
         >
-          <Grid sx={{mt:2}} item>
+          <Grid sx={{ mt: 2 }} item>
             <Typography variant="h6" sx={{ color: "white" }}>
               Join Us Our Newsletter
             </Typography>
@@ -24,28 +24,30 @@ const Newsletter = () => {
             </Typography>
           </Grid>
         </Box>
-        <Grid className="newsltrCountainer" container>
-          <Grid xs={6} md={8} item>
-            <TextField
-              className="newsLetterInput"
-              id="standard-basic"
-              required
-              aria="newsletter"
-              name="email"
-              variant="standard"
-              placeholder=" Your Email Address"
-              rows={4}
-            />
-          </Grid>
-          <Grid xs={6} md={4} className="btnDiv" item>
-            <Button
-              sx={{ mb: 1, width: "75%" }}
-              variant="contained"
-              type="submit"
-            >
-              SUBSCRIBE
-            </Button>
-          </Grid>
+        <Grid  container>
+          <div className="newsletter_div">
+            <Grid xs={12} md={8} item>
+              <TextField
+                className="newsLetterInput"
+                id="standard-basic"
+                required
+                aria="newsletter"
+                name="email"
+                variant="standard"
+                placeholder=" Your Email Address"
+                // rows={4}
+              />
+            </Grid>
+            <Grid xs={12} md={4} className="btnDiv" item>
+              <Button
+                // sx={{ mb: 1, width: "100%" }}
+                variant="contained"
+                type="submit"
+              >
+                SUBSCRIBE
+              </Button>
+            </Grid>
+          </div>
         </Grid>
       </>
     </div>

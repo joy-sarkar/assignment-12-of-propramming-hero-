@@ -1,0 +1,13 @@
+.contactForm {
+  margin-top: 1.6rem !important;
+}
+.inputField{
+  width: 70%!important;
+  /* border-bottom: 1px solid black ; */
+  border: none;
+  padding: 5px;
+  margin-left: 10px;
+}
+.details_img{
+  width: 100%;
+}

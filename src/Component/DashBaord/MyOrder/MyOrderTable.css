@@ -1,0 +1,10 @@
+.orderTable{
+    
+}
+/* make design responsive */
+@media screen and (max-width: 600px) {
+    .orderTable{
+        overflow-x: scroll;
+        width: 50% !important;
+    }
+  }

@@ -4,13 +4,14 @@ import Banner from "../MoreProducts/Banner/Banner";
 import Newsletter from "./NewsLetter/Newsletter";
 import ShowProducts from "./ShowReview/ShowReview";
 import ProductCart from "./ProductsCart/ProductCart";
+import ShowReview from "./ShowReview/ShowReview";
 
 const home = () => {
   return (
     <div>
       <Banner></Banner>
-      <ShowProducts></ShowProducts>
       <ProductCart></ProductCart>
+      <ShowProducts></ShowProducts>
       <Newsletter></Newsletter>
       <Footer></Footer>
     </div>

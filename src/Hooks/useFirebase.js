@@ -30,7 +30,7 @@ const useFirebase = () => {
         sessionStorage.setItem("email", "result.user.email");
         const redirect_uri = location.state?.from || "/";
         history.push(redirect_uri);
-        setError("");
+        setError(" ");
       })
       .catch((error) => {
         setError(error.message);
@@ -42,11 +42,11 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
+        const redirect_uri = location.state?.from || "/";
+        history.push(redirect_uri);
         const user = result.user;
         sessionStorage.setItem("email", "result.user.email");
         setError("");
-        const redirect_uri = location.state?.from || "/";
-        history.push(redirect_uri);
       })
       .catch((error) => {
         setError(error.message);

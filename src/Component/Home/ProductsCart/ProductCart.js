@@ -1,5 +1,6 @@
-import { Grid, Paper, Typography } from "@mui/material";
+import { Button, Grid, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./ProductCart.css";
 
 const ProductCart = () => {
@@ -12,15 +13,34 @@ const ProductCart = () => {
   return (
     <div>
       <Grid container>
-        {bike.slice(1,7).map((bike, index) => (
-          <Grid sx={12} md={5} lg={4} item>
+        {bike.slice(1, 7).map((bike, index) => (
+          <Grid className="cart_box" sx={12} md={5} lg={4} item>
             <Paper>
-              <h5>{bike.name}</h5>
               <img
                 className="cart_img"
                 src={bike.image_link}
                 alt={bike.image_link}
               ></img>
+              <br />
+              <Typography sx={{ textAlign: "center" }} variant="subtitle1">
+                {bike.name}
+              </Typography>
+              <br />
+              <Typography
+                sx={{ textAlign: "center" }}
+              >{`Prices: $ ${bike.price}`}</Typography>
+              <br />
+              <Typography sx={{ textAlign: "center" }} variant="body1">
+                {bike.title}
+              </Typography>
+              <Link
+                to={`/details/${bike._id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Button className="cartBtn" variant="outlined">
+                  Buy Now
+                </Button>
+              </Link>
             </Paper>
           </Grid>
         ))}

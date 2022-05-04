@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from 'react';
 
-const ShowProducts = () => {
-  const [review, setReview] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/bikedatas")
-      .then((res) => res.json())
-      .then((data) => setReview(data));
-  }, []);
-
+const ShowReview = () => {
   return (
     <div>
-      <h4>This products page</h4>
+      <h3>Review slider</h3>
     </div>
   );
 };
 
-export default ShowProducts;
+export default ShowReview;
