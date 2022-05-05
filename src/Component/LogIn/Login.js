@@ -42,6 +42,7 @@ const Login = () => {
                   id="standard-basic"
                   required
                   label="Your Email"
+                  type="text"
                   name="email"
                   onChange={handelOnSubmit}
                   variant="standard"

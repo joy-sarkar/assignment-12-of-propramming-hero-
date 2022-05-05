@@ -16,6 +16,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [admin,setAdmin]= useState(false);
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
   //   sign in with google in pop up
@@ -113,8 +114,16 @@ const useFirebase = () => {
     })
         .then()
 }
+// cheek isAdmin
+  useEffect(()=>{
+    fetch(`http://localhost:5000/users/${user.email}`)
+    .then(res =>res.json())
+    .then(data => setAdmin(data.admin))
+  },[user.email]);
+
   return {
     user,
+    admin,
     error,
     logOut,
     loginUser,

@@ -7,9 +7,12 @@ import Footer from "../Footer/Footer";
 import "./Details.css";
 
 const Details = () => {
+  const default_status= {
+    status: "pending"
+  }
   const { serviceId } = useParams();
   const [detailService, setDetailService] = useState({});
-  const [contactData, setcontactData] = useState({});
+  const [contactData, setcontactData] = useState(default_status);
   const { user } = useAuth();
 
   // single data load from backend
@@ -25,7 +28,6 @@ const Details = () => {
   }, []);
   // collect data from database
 
-
   // collection data form user
   const handelOnSubmit = (e) => {
     const value = e.target.value;
@@ -37,7 +39,7 @@ const Details = () => {
   // send data backend with input value
   const handelForm = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/allOrder", {
+    fetch("http://localhost:5000/addcart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

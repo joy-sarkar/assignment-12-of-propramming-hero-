@@ -1,5 +1,5 @@
 .orderTable{
-    
+    width: 100%;
 }
 /* make design responsive */
 @media screen and (max-width: 600px) {

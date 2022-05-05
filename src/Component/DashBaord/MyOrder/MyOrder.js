@@ -11,12 +11,15 @@ const MyOrder = () => {
         .then(res=> res.json())
         .then(data => setOrder(data))
     },[]);
-    console.log(order)
+    const set_data= (data) =>{
+        console.log(data)
+        setOrder(data)
+    }
 
     return (
         <div>
             <h4>My Order : {order.length}</h4>
-            <MyOrderTable order={order}/>
+            <MyOrderTable setData={set_data} order={order}/>
         </div>
     );
 };

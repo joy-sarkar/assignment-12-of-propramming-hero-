@@ -3,33 +3,35 @@ import { Button, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 
 const Review = () => {
-    const [review,setReview]= useState({});
+    const [review,setReview]= useState('');
 
     const handal_review_from = (e) =>{
-        const value = e.target.value;
-        const name = e.target.name;
-        const newcontactData = { ...review};
-        newcontactData[name] = value;
-        setReview(newcontactData);
+        setReview(e.target.value);
+        
     }
 
     const submit_Review = (e) =>{
+      const reviews_add = {review}
         e.preventDefault()
         // send data in backend via api
-        fetch("http://localhost:5000/bikedatas", {
+        fetch("http://localhost:5000/reviews", {
             method: "POST",
             headers: {
               "content-type": "application/json",
             },
-            body: JSON.stringify(review),
+            body: JSON.stringify(reviews_add),
           })
             .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                alert("Successfully added");
-                e.target.reset();
-              }
-            });
+            .then((data)=>{
+              console.log(data)
+            })
+            // .then((data) => {
+            //   if (data.insertedId) {
+            //     alert("Successfully added");
+            //     e.target.reset();
+            //   }
+            // });
+            console.log("from reviws",review)
     }
     return (
         <div>

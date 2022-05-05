@@ -15,35 +15,36 @@ import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import Pay from "./Pay/Pay";
 import "./DashBoard.css";
 import ManageAllOder from "./ManageAllOder/ManageAllOder";
-import Addbikes from "./AddBikes/Addbikes"
+import Addbikes from "./AddBikes/Addbikes";
 import MyOrder from "./MyOrder/MyOrder";
 import Review from "./Review/Review";
+import useAuth from "../../Hooks/useAuth";
+
 
 const drawerWidth = 170;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const {admin,logOut} = useAuth();
 
   let { path, url } = useRouteMatch();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const log_out = () =>{
+      logOut()
+  }
   const drawer = (
     <div>
       <Box className="nested_header">
-        {/* nested header */}
         <Link style={{ textDecoration: "none", color: "black" }} to="/home">
           <Button>Home</Button>
         </Link>
         <br />
         <Link style={{ textDecoration: "none" }} to={`${url}`}>
           <Button>Dash Board</Button>
-        </Link>
-        <br />
-        <Link style={{ textDecoration: "none" }} to={`${url}/makeAdmin`}>
-          <Button>Make Admin</Button>
         </Link>
         <br />
         <Link style={{ textDecoration: "none" }} to={`${url}/pay`}>
@@ -54,19 +55,30 @@ function ResponsiveDrawer(props) {
           <Button color="inherit">My Order</Button>
         </Link>
         <br />
-        <Link style={{ textDecoration: "none" }} to={`${url}/manageallorder`}>
-          <Button color="inherit">Manage All Order</Button>
-        </Link>
-        <br/>
-        <Link style={{ textDecoration: "none" }} to={`${url}/addbikes`}>
-          <Button color="inherit">Add Bikes</Button>
-        </Link>
-        <br />
+        {admin && <Box>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`${url}/manageallorder`}
+            >
+              <Button color="inherit">Manage All Order</Button>
+            </Link>
+            <br />
+            <Link style={{ textDecoration: "none" }} to={`${url}/addbikes`}>
+              <Button color="inherit">Add Bikes</Button>
+            </Link>
+            <br />
+            <Link style={{ textDecoration: "none" }} to={`${url}/makeAdmin`}>
+              <Button>Make Admin</Button>
+            </Link>
+            <br />
+          </Box>
+        }
         <Link style={{ textDecoration: "none" }} to={`${url}/review`}>
           <Button color="inherit">Review</Button>
         </Link>
-        <Link>
-        <Button>Log Out</Button>
+        <br/>
+        <Link style={{ textDecoration: "none" }}>
+          <Button onClick={log_out } >Log Out</Button>
         </Link>
       </Box>
     </div>
@@ -155,10 +167,10 @@ function ResponsiveDrawer(props) {
             <MyOrder></MyOrder>
           </Route>
           <Route exact path={`${path}/addbikes`}>
-          <Addbikes></Addbikes>
+            <Addbikes></Addbikes>
           </Route>
           <Route exact path={`${path}/review`}>
-          <Review></Review>
+            <Review></Review>
           </Route>
         </Switch>
       </Box>

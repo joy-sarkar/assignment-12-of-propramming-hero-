@@ -15,7 +15,7 @@ const ProductCart = () => {
       <Grid container>
         {bike.slice(1, 7).map((bike, index) => (
           <Grid className="cart_box" sx={12} md={5} lg={4} item>
-            <Paper>
+            <Paper key={index}>
               <img
                 className="cart_img"
                 src={bike.image_link}

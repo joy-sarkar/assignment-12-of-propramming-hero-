@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import './MyOrderTable.css'
+// import './MyOrderTable.css'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -43,11 +43,9 @@ const rows = [
 ];
 {/* sx={{ minWidth: 700}} */}
 
-export default function CustomizedTables({order,setData}) {
-  // updata status
-
-  const update_Status= (order_id,setdata) =>{
-    const url = `http://localhost:5000/deleteorder/${order_id}`;
+export default function AlOrderTable({datas,setdata}) {
+  const delete_item = (id,new_data) =>{
+    const url = `http://localhost:5000/deleteorder/${id}`;
     fetch(url,{
       method:'DELETE'
     })
@@ -55,10 +53,18 @@ export default function CustomizedTables({order,setData}) {
     .then(data =>{
       if(data.deletedCount > 0){
         alert("deleted Successfully");
-        const remainingData = order.filter( user => user._id !== order_id)
-        setdata(remainingData)
+        const remainingData = datas.filter( user => user._id !== id)
+        new_data(remainingData)
       }
     })
+  }
+  // update status pending to shift
+  const update_status = () =>{
+    // const url = `http://localhost:5000/deleteorder/${id}`;
+    // fetch(url,{
+    //   method:'DELETE'
+    // })
+    // .then(res => res.json())
   }
   return (
     <TableContainer component={Paper}>
@@ -69,11 +75,12 @@ export default function CustomizedTables({order,setData}) {
             <StyledTableCell align="right">Address</StyledTableCell>
             <StyledTableCell align="right">prices</StyledTableCell>
             <StyledTableCell align="right">Status</StyledTableCell>
+            <StyledTableCell align="right">Shift</StyledTableCell>
             <StyledTableCell align="right">Remove</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {order.map((row) => (
+          {datas.map((row) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
@@ -81,7 +88,8 @@ export default function CustomizedTables({order,setData}) {
               <StyledTableCell align="right">{row.address}</StyledTableCell>
               <StyledTableCell align="right">{row.prices}</StyledTableCell>
               <StyledTableCell align="right">{row.status}</StyledTableCell>
-              <StyledTableCell align="right"><Button onClick={() => update_Status(row._id,setData)} variant="text">REMOVE</Button></StyledTableCell>
+              <StyledTableCell align="right"><Button variant="text">SHIFT</Button></StyledTableCell>
+              <StyledTableCell align="right"><Button onClick={() => delete_item(row._id,setdata)} variant="text">DELETE</Button></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

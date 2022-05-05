@@ -46,6 +46,7 @@ const Resistation = () => {
                   required
                   label="Your Email"
                   name="email"
+                  type="text"
                   onChange={handelOnSubmit}
                   variant="standard"
                   rows={4}
