@@ -16,7 +16,7 @@ const Addbikes = () => {
   const handelForm = (e) => {
     e.preventDefault();
     // send to in backend
-    fetch("http://localhost:5000/bikedatas", {
+    fetch("https://afternoon-sierra-16943.herokuapp.com/bikedatas", {
       method: "POST",
       headers: {
         "content-type": "application/json",

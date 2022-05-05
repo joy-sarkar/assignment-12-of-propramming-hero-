@@ -6,7 +6,7 @@ const MyOrder = () => {
     const { user} = useAuth();
     const[order,setOrder]=useState([])
     useEffect(()=>{
-        const uri =`http://localhost:5000/myOrder?email=${user.email}`
+        const uri =`https://afternoon-sierra-16943.herokuapp.com/myOrder?email=${user.email}`
         fetch(uri)
         .then(res=> res.json())
         .then(data => setOrder(data))

@@ -47,7 +47,7 @@ export default function CustomizedTables({order,setData}) {
   // updata status
 
   const update_Status= (order_id,setdata) =>{
-    const url = `http://localhost:5000/deleteorder/${order_id}`;
+    const url = `https://afternoon-sierra-16943.herokuapp.com/deleteorder/${order_id}`;
     fetch(url,{
       method:'DELETE'
     })

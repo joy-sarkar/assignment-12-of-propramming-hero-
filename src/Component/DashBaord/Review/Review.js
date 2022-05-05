@@ -14,7 +14,7 @@ const Review = () => {
       const reviews_add = {review}
         e.preventDefault()
         // send data in backend via api
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://afternoon-sierra-16943.herokuapp.com/reviews", {
             method: "POST",
             headers: {
               "content-type": "application/json",

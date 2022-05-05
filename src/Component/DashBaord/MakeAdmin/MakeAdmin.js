@@ -16,7 +16,7 @@ const Review = () => {
 
         const user = {admin}
         
-        fetch("http://localhost:5000/users/admin", {
+        fetch("https://afternoon-sierra-16943.herokuapp.com/users/admin", {
             method: "PUT",
             headers: {
               "content-type": "application/json",

@@ -45,7 +45,7 @@ const rows = [
 
 export default function AlOrderTable({datas,setdata}) {
   const delete_item = (id,new_data) =>{
-    const url = `http://localhost:5000/deleteorder/${id}`;
+    const url = `https://afternoon-sierra-16943.herokuapp.com/deleteorder/${id}`;
     fetch(url,{
       method:'DELETE'
     })

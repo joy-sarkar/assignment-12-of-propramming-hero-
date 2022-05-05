@@ -16,7 +16,7 @@ const ReviewsContainer = () => {
   const [review, setReview] = useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://afternoon-sierra-16943.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);

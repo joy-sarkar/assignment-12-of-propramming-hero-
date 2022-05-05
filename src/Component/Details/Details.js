@@ -17,7 +17,7 @@ const Details = () => {
 
   // single data load from backend
   useEffect(() => {
-    fetch(`http://localhost:5000/details/${serviceId}`)
+    fetch(`https://afternoon-sierra-16943.herokuapp.com/details/${serviceId}`)
       .then((res) => {
         if (res.ok) {
           Error(res.statusText);
@@ -39,7 +39,7 @@ const Details = () => {
   // send data backend with input value
   const handelForm = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/addcart", {
+    fetch("https://afternoon-sierra-16943.herokuapp.com/addcart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

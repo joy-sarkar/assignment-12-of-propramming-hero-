@@ -4,13 +4,13 @@ import AlOrderTable from '../ManageAllOder/manageAllOrderTable'
 const ManageAllOder = () => {
     const[all_orders,setAll_orders]=useState([])
     useEffect(()=>{
-        fetch("http://localhost:5000/allOrder")
+        fetch("https://afternoon-sierra-16943.herokuapp.com/allOrder")
         .then(res=> res.json())
         .then(data => setAll_orders(data))
     },[]);
     const set_up_data = (new_data) =>{
         setAll_orders(new_data)
-        console.log('data from managea all order',new_data)
+        // console.log('data from managea all order',new_data)
     }
     // console.log('data from all orders',all_orders)
 
